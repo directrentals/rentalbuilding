@@ -28,9 +28,16 @@ class Building(db.Model):
     manager = db.relationship("User")
 
     def serialize(self):
-            return {
-                "id": self.id,
-                "name": self.name,
+        return {
+            "id": self.id,
+            "name": self.name,
+            "phone": self.phone,
+            "street": self.street,
+            "street2": self.street2,
+            "city": self.city,
+            "state": self.state,
+            "zipcode": self.zipcode,
+            
                 
             }
 
@@ -43,8 +50,13 @@ class Unit(db.Model):
     building_id = db.Column(db.Integer, db.ForeignKey("building.id"),nullable=False)
     building = db.relationship("Building")
 
+    def serialize(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            
 
-
+            }
 
 
 
@@ -61,6 +73,19 @@ class Tenant(db.Model):
     pax = db.Column(db.Text, nullable =False)
     pax_count = db.Column(db.Integer)
 
+    def serialize(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "email": self.email,
+            "unit_id": self.unit_id,
+            "check_in": self.check_in,
+            "check_out": self.check_out,
+            "status": self.status,
+            "pax": self.pax,
+            "pax_count": self.pax,
+
+                }
 
 
 
