@@ -8,9 +8,6 @@ class User(db.Model):
     password = db.Column(db.String(80), unique=False, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
 
-    def __repr__(self):
-        return '<User %r>' % self.username
-
     def serialize(self):
         return {
             "id": self.id,
@@ -30,8 +27,12 @@ class Building(db.Model):
     manager_id = db.Column(db.Integer, db.ForeignKey("user.id"),nullable=False)
     manager = db.relationship("User")
 
-
-
+    def serialize(self):
+            return {
+                "id": self.id,
+                "name": self.name,
+                
+            }
 
 
 class Unit(db.Model):

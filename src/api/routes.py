@@ -66,3 +66,13 @@ def userinfo():
     }
 
     return jsonify(response_body), 200
+
+
+@api.route('/buildinginfo', methods=['GET'])
+@jwt_required()
+def buildinginfo():
+    current_user_id = get_jwt_identity()
+
+    building = Building.query.filter_by(manager_id = current_user_id)
+    building = list(map(lambda item:item.serialize(),building))
+    return jsonify(building)
