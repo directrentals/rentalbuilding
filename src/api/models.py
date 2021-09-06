@@ -61,7 +61,6 @@ class Unit(db.Model):
 
 
 class Tenant(db.Model):
-    __tablename__ = "tenant"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
@@ -72,6 +71,8 @@ class Tenant(db.Model):
     status = db.Column(db.String(20), nullable =False, default="created")
     pax = db.Column(db.Text, nullable =False)
     pax_count = db.Column(db.Integer)
+    owner_id =  db.Column(db.Integer, db.ForeignKey("user.id"),nullable=False)
+    owner = db.relationship("User")
 
     def serialize(self):
         return {
@@ -84,6 +85,7 @@ class Tenant(db.Model):
             "status": self.status,
             "pax": self.pax,
             "pax_count": self.pax,
+            "owner_id": self.owner_id,
 
                 }
 

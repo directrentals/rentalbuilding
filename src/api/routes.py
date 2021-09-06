@@ -74,5 +74,25 @@ def buildinginfo():
     current_user_id = get_jwt_identity()
 
     building = Building.query.filter_by(manager_id = current_user_id)
-    building = list(map(lambda item:item.serialize(),building))
-    return jsonify(building)
+    buildingdata = list(map(lambda item:item.serialize(),building))
+    return jsonify(buildingdata)
+
+
+@api.route('/unitinfo', methods=['GET'])
+@jwt_required()
+def unitinfo():
+    current_user_id = get_jwt_identity()
+
+    unit = Unit.query.filter_by(owner_id = current_user_id)
+    unitdata = list(map(lambda item:item.serialize(),unit))
+    return jsonify(unitdata)
+
+
+@api.route('/tenantinfo', methods=['GET'])
+@jwt_required()
+def tenantinfo():
+    current_user_id = get_jwt_identity()
+
+    tenant = Tenant.query.filter_by(owner_id = current_user_id)
+    tenantdata = list(map(lambda item:item.serialize(),tenant))
+    return jsonify(tenantdata)
