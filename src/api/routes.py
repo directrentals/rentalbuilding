@@ -68,31 +68,25 @@ def userinfo():
     return jsonify(response_body), 200
 
 
-@api.route('/buildinginfo', methods=['GET'])
+@api.route('/buildinginfo/<int:id>', methods=['GET'])
 @jwt_required()
-def buildinginfo():
-    current_user_id = get_jwt_identity()
-
-    building = Building.query.filter_by(manager_id = current_user_id)
-    buildingdata = list(map(lambda item:item.serialize(),building))
-    return jsonify(buildingdata)
+def buildinginfo(id):
+    
+    building = Building.query.filter(Building.id == id).first()
+    return jsonify(building.serialize())
 
 
-@api.route('/unitinfo', methods=['GET'])
+@api.route('/unitinfo/<int:id>', methods=['GET'])
 @jwt_required()
-def unitinfo():
-    current_user_id = get_jwt_identity()
+def unitinfo(id):
 
-    unit = Unit.query.filter_by(owner_id = current_user_id)
-    unitdata = list(map(lambda item:item.serialize(),unit))
-    return jsonify(unitdata)
+    unit = Unit.query.filter(Owner.id == id).first()
+    return jsonify(unit.serialize())
 
 
-@api.route('/tenantinfo', methods=['GET'])
+@api.route('/tenantinfo/<int:id>', methods=['GET'])
 @jwt_required()
-def tenantinfo():
-    current_user_id = get_jwt_identity()
+def tenantinfo(id):
 
-    tenant = Tenant.query.filter_by(owner_id = current_user_id)
-    tenantdata = list(map(lambda item:item.serialize(),tenant))
-    return jsonify(tenantdata)
+    tenant = Tenant.query.filter(Owner.id == id).first()
+    return jsonify(tenant.serialize())
