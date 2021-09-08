@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models import db, User, Tenant, Unit, Building
 # from flask_cors import CORS
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
@@ -73,20 +73,111 @@ def userinfo():
 def buildinginfo(id):
     
     building = Building.query.filter(Building.id == id).first()
-    return jsonify(building.serialize())
+    return jsonify(building.serialize()), 200
 
 
 @api.route('/unitinfo/<int:id>', methods=['GET'])
 @jwt_required()
 def unitinfo(id):
 
-    unit = Unit.query.filter(Owner.id == id).first()
-    return jsonify(unit.serialize())
+    unit = Unit.query.filter(Unit.id == id).first()
+    return jsonify(unit.serialize()), 200
 
 
 @api.route('/tenantinfo/<int:id>', methods=['GET'])
 @jwt_required()
 def tenantinfo(id):
 
-    tenant = Tenant.query.filter(Owner.id == id).first()
-    return jsonify(tenant.serialize())
+    tenant = Tenant.query.filter(Tenant.id == id).first()
+    return jsonify(tenant.serialize()), 200
+
+
+@api.route('/building', methods=['POST'])
+@jwt_required()
+def register_building():
+    content = request.get_json(silent=True)
+    current_user_id = get_jwt_identity()
+    building = Building(
+        name = content["name"], 
+        phone = content["phone"], 
+        street = content["street"], 
+        street2 = content["street2"], 
+        city = content["city"], 
+        state = content["state"], 
+        zipcode = content["zipcode"], 
+        manager_id = current_user_id
+    )
+
+    db.session.add(building)
+    db.session.commit()
+
+    response_body = {
+        "message": "Building Registered"
+    }
+    return jsonify(response_body), 200
+
+@api.route('/tenant/<int:id>', methods=['PATCH'])
+@jwt_required()
+def checkin_tenant(id):
+    content = request.get_json(silent=True)
+    current_user_id = get_jwt_identity()
+    tenant = Tenant.query.filter(Tenant.id == id).first()
+    if tenant.unit.building.manager_id != current_user_id:
+        return jsonify({"message": "Unauthorized user"}), 403
+
+    tenant.fob = content["fob"]
+    tenant.status = "checked in"
+    tenant.save()
+    db.session.commit()
+
+    response_body = {
+        "message": "Tenant Checked in"
+    }
+    return jsonify(response_body), 200
+
+
+@api.route('/register-owner', methods=['POST'])
+@jwt_required()
+def register_owner():
+    content = request.get_json(silent=True)
+    current_user_id = get_jwt_identity()
+    owner = Owner(
+        name = content["name"], 
+        phone = content["phone"],
+        user = User(email = content["email"], 
+        password = ph.hash(content["password"]), is_active = True)
+        unit = content["unit"], 
+        building = content["building"], #duda
+    )
+
+    db.session.add(owner)
+    db.session.commit()
+
+    response_body = {
+        "message": "Owner Registered"
+    }
+    return jsonify(response_body), 200
+
+
+@api.route('/tenant', methods=['POST'])
+@jwt_required()
+def register_tenant():
+    content = request.get_json(silent=True)
+    current_user_id = get_jwt_identity()
+    tenant = Tenant(
+        name = content["name"], 
+        phone = content["phone"],
+        user = User(email = content["email"], 
+        unit = content["unit"], 
+        building = content["building"],
+        check_in = content["check_in"],
+        pax = content["pax"],
+    )
+
+    db.session.add(tenant)
+    db.session.commit()
+
+    response_body = {
+        "message": "Tenant Registered"
+    }
+    return jsonify(response_body), 200

@@ -8,6 +8,9 @@ class User(db.Model):
     password = db.Column(db.String(80), unique=False, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
 
+    def __repr__(self):
+        return f'User {self.email}'
+
     def serialize(self):
         return {
             "id": self.id,
@@ -26,6 +29,9 @@ class Building(db.Model):
     zipcode = db.Column(db.String(5))
     manager_id = db.Column(db.Integer, db.ForeignKey("user.id"),nullable=False)
     manager = db.relationship("User")
+
+    def __repr__(self):
+        return f'Building {self.name}'
 
     def serialize(self):
         return {
@@ -57,8 +63,8 @@ class Unit(db.Model):
         return {
             "id": self.id,
             "name": self.name,
-            "owner": self.name.serialize(),
-            "building": self.serialize(),
+            "owner": self.owner.serialize(),
+            "building": self.building.serialize(),
 
             
 
@@ -78,6 +84,9 @@ class Tenant(db.Model):
     status = db.Column(db.String(20), nullable =False, default="created")
     pax = db.Column(db.Text, nullable =False)
     pax_count = db.Column(db.Integer)
+
+    def __repr__(self):
+        return f'Tenant {self.name} @ {self.unit}'
     
 
     def serialize(self):
