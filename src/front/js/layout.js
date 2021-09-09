@@ -11,6 +11,12 @@ import { Dashboard } from "./pages/Dashboard";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { SecurePage } from "./component/SecurePage";
+import { ManageBuildingPage } from "./pages/ManageBuildingPage";
+import { RegisterBuildingPage } from "./pages/RegisterBuildingPage";
+import { RegisterOwnerPage } from "./pages/RegisterOwnerPage";
+import { RegisterTenantPage } from "./pages/RegisterTenantPage";
+import { CheckinTenantPage } from "./pages/CheckinTenantPage";
+import { RegisterUnitPage } from "./pages/RegisterUnitPage";
 
 //create your first component
 const Layout = () => {
@@ -38,6 +44,36 @@ const Layout = () => {
 						<Route exact path="/dashboard">
 							<SecurePage>
 								<Dashboard />
+							</SecurePage>
+						</Route>
+
+						<Route exact path="/registerbuilding">
+							<SecurePage>
+								<RegisterBuildingPage />
+							</SecurePage>
+						</Route>
+
+						<Route exact path="/registerunit">
+							<SecurePage>
+								<RegisterUnitPage />
+							</SecurePage>
+						</Route>
+
+						<Route exact path="/managebuilding/:id">
+							<SecurePage>
+								<ManageBuildingPage />
+							</SecurePage>
+						</Route>
+
+						<Route exact path="/checkin/:id">
+							<SecurePage>
+								<CheckinTenantPage />
+							</SecurePage>
+						</Route>
+
+						<Route exact path="/registertenant">
+							<SecurePage>
+								<RegisterTenantPage />
 							</SecurePage>
 						</Route>
 
