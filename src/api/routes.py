@@ -137,26 +137,28 @@ def checkin_tenant(id):
 
 
 @api.route('/register-owner', methods=['POST'])
-@jwt_required()
 def register_owner():
     content = request.get_json(silent=True)
-    current_user_id = get_jwt_identity()
-    owner = Owner(
-        name = content["name"], 
-        phone = content["phone"],
-        user = User(email = content["email"], 
-        password = ph.hash(content["password"]), is_active = True)
-        unit = content["unit"], 
-        building = content["building"], #duda
+    user = User(
+        email = content["email"], 
+        password = ph.hash(content["password"]), 
+        is_active = True
     )
-
-    db.session.add(owner)
+  
+    db.session.add(user)
     db.session.commit()
+    unit = Unit(
+        name = content["name"],
+        owner_id = user.id,
+        building_id = content["building_id"]
+    )
+    db.session.add(unit)
 
     response_body = {
-        "message": "Owner Registered"
+        "message": "Owner Created"
     }
-    return jsonify(response_body), 200
+
+    return jsonify(response_body), 204
 
 
 @api.route('/tenant', methods=['POST'])
