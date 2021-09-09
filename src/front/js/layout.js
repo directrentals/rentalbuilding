@@ -77,6 +77,10 @@ const Layout = () => {
 							</SecurePage>
 						</Route>
 
+						<Route exact path="/registerowner">
+								<RegisterOwnerPage />
+						</Route>
+
 						<Route>
 							<h1>Not found!</h1>
 						</Route>
