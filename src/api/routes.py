@@ -168,18 +168,15 @@ def register_tenant():
     current_user_id = get_jwt_identity()
     tenant = Tenant(
         name = content["name"], 
-        phone = content["phone"],
-        user = User(email = content["email"], 
-        unit = content["unit"], 
-        building = content["building"],
+        email = content["email"],
+        unit_id = content["unit_id"], 
         check_in = content["check_in"],
-        pax = content["pax"]
+        check_out = content["check_out"],
+        pax = content["pax"],
+        pax_count = len(content["pax"].split(",")) + 1
     )
     db.session.add(tenant)
     db.session.commit()
-    
-    
-
     response_body = {
         "message": "Tenant Registered"
     }
