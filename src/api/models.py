@@ -7,6 +7,7 @@ class User(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
+    phone = db.Column(db.String(120), unique=True)
 
     def __repr__(self):
         return f'User {self.email}'
@@ -76,6 +77,7 @@ class Tenant(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
+    phone = db.Column(db.String(120), unique=True, nullable=False)
     unit_id = db.Column(db.Integer, db.ForeignKey("unit.id"),nullable=False)
     unit = db.relationship("Unit")
     check_in = db.Column(db.DateTime(timezone = True))
