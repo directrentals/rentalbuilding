@@ -1,4 +1,3 @@
 import React from "react";
 
-export const CheckinTenantPage = () => {
-}
+export const CheckinTenantPage = () => {};

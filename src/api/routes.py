@@ -173,11 +173,12 @@ def register_tenant():
         unit = content["unit"], 
         building = content["building"],
         check_in = content["check_in"],
-        pax = content["pax"],
+        pax = content["pax"]
     )
-
     db.session.add(tenant)
     db.session.commit()
+    
+    
 
     response_body = {
         "message": "Tenant Registered"

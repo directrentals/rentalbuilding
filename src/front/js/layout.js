@@ -65,7 +65,7 @@ const Layout = () => {
 							</SecurePage>
 						</Route>
 
-						<Route exact path="/checkin/:id">
+						<Route exact path="/checkintenant/:id">
 							<SecurePage>
 								<CheckinTenantPage />
 							</SecurePage>
@@ -78,7 +78,7 @@ const Layout = () => {
 						</Route>
 
 						<Route exact path="/registerowner">
-								<RegisterOwnerPage />
+							<RegisterOwnerPage />
 						</Route>
 
 						<Route>
