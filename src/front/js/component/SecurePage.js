@@ -1,18 +1,17 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Context } from "../store/appContext";
+import { useAuth } from "../store/auth";
 
 export function SecurePage(props) {
-	const { store, actions } = React.useContext(Context);
 	const history = useHistory();
-
+	const auth = useAuth();
 	React.useEffect(
 		() => {
-			if (!store.authToken) {
+			if (!auth.authToken) {
 				history.push("/login");
 			}
 		},
-		[store.authToken]
+		[auth.authToken]
 	);
 
 	return <>{props.children}</>;
