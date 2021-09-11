@@ -8,8 +8,6 @@ export function Dashboard() {
 	return (
 		<div>
 			<h3>Dashboard</h3>
-			<p>lista de buildings</p>
-			<p>lista de units</p>
 			<Link to="/registerbuilding">register building</Link>
 			<Link to="/registerunit">Register Unit</Link>
 

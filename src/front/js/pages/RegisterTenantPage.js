@@ -1,5 +1,6 @@
-import { check } from "prettier";
 import React from "react";
+import { useHistory } from "react-router-dom";
+import { useAuth } from "../store/auth";
 
 export function RegisterTenantPage() {
 	const [name, setName] = React.useState("");
