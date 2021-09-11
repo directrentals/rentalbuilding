@@ -1,3 +1,7 @@
 import React from "react";
 
-export const RegisterOwnerPage = () => {};
+export const RegisterOwnerPage = () => {
+    return (
+        <div>Register Owner</div>
+    )
+};
