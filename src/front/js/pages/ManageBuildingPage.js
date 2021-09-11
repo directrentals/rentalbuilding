@@ -1,3 +1,7 @@
 import React from "react";
 
-export const ManageBuildingPage = () => {};
+export const ManageBuildingPage = () => {
+    return (
+        <div>Manage Building</div>
+    )
+};
