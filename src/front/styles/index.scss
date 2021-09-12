@@ -1,3 +1,52 @@
-/* 
-    General Styles
-*/
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
+
+body{
+    background-image: url(https://i.ibb.co/9wHYypy/IMG-1216.jpg);
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    -wekit-background-attachment: fixed;
+    -o-background-attachment: fixed;
+    -moz-background-attachment: fixed;
+
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard-links{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
+    padding: 250px 0 250px;
+    
+}
+
+.exitdb{
+    display:flex;
+    justify-content: center;
+}
+
+.btn-links {
+    
+        display: inline-block;
+        padding: 0.3em 1em;
+        text-decoration: none;
+        border-radius: 25px;
+        color: blue;
+        transition: .4s;
+        font-size:xx-large;
+        background-color:  #FF0066;
+   
+        
+        
+        
+    }
+    
+    .btn-links:hover {
+        background: #D41872;
+        color:blue;
+    }
