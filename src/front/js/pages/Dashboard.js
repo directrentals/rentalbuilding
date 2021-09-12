@@ -7,13 +7,20 @@ export function Dashboard() {
 
 	return (
 		<div>
-			<h3>Dashboard</h3>
-			<Link to="/registerbuilding">register building</Link>
-			<Link to="/registerunit">Register Unit</Link>
-
-			<button className="btn btn-outline-primary" onClick={() => auth.logout()}>
-				Exit
-			</button>
+			<h3 className="dashboard-header">Dashboard</h3>
+			<div className="dashboard-links">
+				<Link to="/registerbuilding" className="btn-links">
+					REGISTER BUILDING
+				</Link>
+				<Link to="/registerunit" className="btn-links">
+					REGISTER UNIT
+				</Link>
+			</div>
+			<div className="exitdb">
+				<button className="btn btn-outline-primary" onClick={() => auth.logout()}>
+					Exit
+				</button>
+			</div>
 		</div>
 	);
 }

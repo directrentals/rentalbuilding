@@ -19,7 +19,6 @@ export function RegisterUnitPage() {
 		[auth.authToken]
 	);
 
-
 	return (
 		<div className="container">
 			<h3>Register Unit</h3>
