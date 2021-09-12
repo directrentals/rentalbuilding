@@ -52,18 +52,18 @@ class Building(db.Model):
 
 class Unit(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), unique=True, nullable=False)
+    number = db.Column(db.String(120), unique=True, nullable=False)
     owner_id =  db.Column(db.Integer, db.ForeignKey("user.id"),nullable=False)
     owner = db.relationship("User")
     building_id = db.Column(db.Integer, db.ForeignKey("building.id"),nullable=False)
     building = db.relationship("Building")
     def __repr__(self):
-        return f'Unit {self.name} @ {self.building.name}'
+        return f'Unit {self.number} @ {self.building.name}'
 
     def serialize(self):
         return {
             "id": self.id,
-            "name": self.name,
+            "number": self.number,
             "owner": self.owner.serialize(),
             "building": self.building.serialize(),
 
