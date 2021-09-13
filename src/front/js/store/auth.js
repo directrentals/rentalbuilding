@@ -27,6 +27,21 @@ export const useAuth = create(
 
 			logout: () => set({ authToken: null }),
 
+			registerUnit: number => {
+				fetch(process.env.BACKEND_URL + "/api/unit", {
+					method: "POST",
+					mode: "cors",
+					body: JSON.stringify({ number }),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(res => res.json())
+					.then(response => console.log("Success:", JSON.stringify(response)))
+					.catch(error => console.error("Error:", error));
+			},
+
+			//logout: () => set({ authToken: null }),
 			loginUser: (email, password) => {
 				fetch(process.env.BACKEND_URL + "/api/login", {
 					method: "POST",

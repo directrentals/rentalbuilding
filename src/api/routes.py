@@ -116,6 +116,24 @@ def register_building():
     }
     return jsonify(response_body), 200
 
+@api.route('/unit', methods=['POST'])
+
+def register_unit():
+
+    content = request.get_json(silent=True)
+    unit = Unit(
+
+        number = content["number"]
+    )
+
+    db.session.add(unit)
+    db.session.commit()
+
+    response_body = {
+        "message": "Unit Registered"
+    }
+    return jsonify(response_body), 200
+
 @api.route('/tenant/<int:id>', methods=['PATCH'])
 @jwt_required()
 def checkin_tenant(id):
@@ -148,7 +166,7 @@ def register_owner():
     db.session.add(user)
     db.session.commit()
     unit = Unit(
-        name = content["name"],
+        number = content["number"],
         owner_id = user.id,
         building_id = content["building_id"]
     )

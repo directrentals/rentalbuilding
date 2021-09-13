@@ -55,7 +55,7 @@ export function RegisterUnitPage() {
 				/>
 			</div>
 
-			<button className="btn btn-primary mt-3" onClick={() => registerUnit(owner, building, number)}>
+			<button className="btn btn-primary mt-3" onClick={() => auth.registerUnit(number)}>
 				Register Unit
 			</button>
 		</div>
