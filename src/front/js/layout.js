@@ -53,7 +53,7 @@ const Layout = () => {
 							</SecurePage>
 						</Route>
 
-						<Route exact path="/registerunit">
+						<Route exact path="/registerunit/:buildingId">
 							<SecurePage>
 								<RegisterUnitPage />
 							</SecurePage>

@@ -13,7 +13,7 @@ export function RegisterUnitPage() {
 	React.useEffect(
 		() => {
 			if (auth.authToken) {
-				history.push("/registerunit");
+				history.push("/building");
 			}
 		},
 		[auth.authToken]

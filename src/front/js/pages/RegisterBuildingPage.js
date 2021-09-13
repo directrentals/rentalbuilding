@@ -1,9 +1,9 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useBuilding } from "../store/building";
+import { useHistory } from "react-router";
 import { useAuth } from "../store/auth";
 
 export function RegisterBuildingPage() {
-	const [manager, setManager] = React.useState("");
 	const [name, setName] = React.useState("");
 	const [phone, setPhone] = React.useState("");
 	const [street, setStreet] = React.useState("");
@@ -12,32 +12,22 @@ export function RegisterBuildingPage() {
 	const [state, setState] = React.useState("");
 	const [zipcode, setZipcode] = React.useState("");
 
-	const history = useHistory();
 	const auth = useAuth();
+	const building = useBuilding();
+	const history = useHistory();
 
 	React.useEffect(
 		() => {
-			if (auth.authToken) {
-				history.push("/registerbuilding");
+			if (building.buildingSaved) {
+				history.push("/managebuilding/" + building.building.id);
 			}
 		},
-		[auth.authToken]
+		[building.buildingSaved]
 	);
 
 	return (
 		<div className="container">
 			<h3>Register Building</h3>
-
-			<div className="form-floating mb-3">
-				<label>Manager</label>
-				<input
-					value={manager}
-					onChange={ev => setManager(ev.target.value)}
-					type="text"
-					className="form-control"
-					placeholder="Manager name"
-				/>
-			</div>
 			<div className="form-floating">
 				<label>Name</label>
 				<input
@@ -115,7 +105,10 @@ export function RegisterBuildingPage() {
 
 			<button
 				className="btn btn-primary mt-3"
-				onClick={() => auth.registerBuilding(manager, name, phone, street, street2, city, state, zipcode)}>
+				disabled={building.savingBuilding}
+				onClick={() =>
+					building.registerBuilding(name, phone, street, street2, city, state, zipcode, auth.authToken)
+				}>
 				Register Building
 			</button>
 		</div>

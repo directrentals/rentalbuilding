@@ -110,16 +110,12 @@ def register_building():
 
     db.session.add(building)
     db.session.commit()
-
-    response_body = {
-        "message": "Building Registered"
-    }
-    return jsonify(response_body), 200
+    return jsonify(building.serialize()), 200
 
 @api.route('/unit', methods=['POST'])
-
+@jwt_required()
 def register_unit():
-
+    current_user_id = get_jwt_identity()    
     content = request.get_json(silent=True)
     unit = Unit(
 
