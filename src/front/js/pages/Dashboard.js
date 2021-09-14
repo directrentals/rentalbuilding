@@ -8,6 +8,7 @@ export function Dashboard() {
 	return (
 		<div>
 			<h3 className="dashboard-header">Dashboard</h3>
+
 			<div className="dashboard-links">
 				<Link to="/registerbuilding" className="btn-links">
 					REGISTER BUILDING

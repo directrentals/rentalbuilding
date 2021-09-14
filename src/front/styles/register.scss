@@ -10,22 +10,23 @@ html, body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/form-bk.jpg") no-repeat center center;
+  background:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://i.ibb.co/3vkG1wm/antonio-cuellar-K4-B1pu-V484-unsplash.jpg") no-repeat center center;
   background-size: cover;
   font-family: 'Lato', sans-serif;
 }
 
 form {
-  background: $gray;
+  background-color: #eeeeee;
   width: 450px;
   margin-top: 50px;
   margin-bottom: 50px;
   position: absolute;
   z-index: 10;
   padding: 60px 60px 80px;
+  padding-bottom: 60px;
   left: 50%;
   margin-left: -230px;
-  opacity: 0.85;
+  
   h2 {
     text-transform: uppercase;
     text-align: center;
@@ -98,12 +99,12 @@ form {
     letter-spacing: 0.06em;
     text-align: center;
     cursor: pointer;
-    background: #ec7242;
+    background:#4acfee;
     color: #fff;
     width: 101%;
     transition: 0.8s all ease;
     &:hover {
-      background: #d6673c;
+      background: #19e5e6;
       transform: translateY(1px);
       transition: 0.4s all ease;
     }

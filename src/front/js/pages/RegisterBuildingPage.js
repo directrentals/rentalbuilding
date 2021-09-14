@@ -148,8 +148,6 @@ export function RegisterBuildingPage() {
 					</svg>
 				</div>
 			</form>
-
-		
 		</div>
 	);
 }

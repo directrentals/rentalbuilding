@@ -2,7 +2,7 @@
 
 
 body{
-    background-image: url(https://i.ibb.co/9wHYypy/IMG-1216.jpg);
+    background-image: url(https://i.ibb.co/3vkG1wm/antonio-cuellar-K4-B1pu-V484-unsplash.jpg);
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
@@ -10,6 +10,11 @@ body{
     -o-background-attachment: fixed;
     -moz-background-attachment: fixed;
 
+}
+
+.justify-nav{
+    display: flex;
+    justify-content: end;
 }
 
 .dashboard-header {
