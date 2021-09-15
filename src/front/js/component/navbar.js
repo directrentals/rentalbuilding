@@ -15,7 +15,7 @@ export const Navbar = () => {
 				<span className="navbar-toggler-icon" />
 			</button>
 			<a className="navbar-brand" href="#">
-				DirectBuilding
+				<img className="navlogo" src="https://i.ibb.co/XCBYyTv/Logo-Makr-5vd-LDB.png" />
 			</a>
 
 			<div className="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -43,6 +43,11 @@ export const Navbar = () => {
 					<li className="nav-item">
 						<a className="nav-link" href="#">
 							Pricing
+						</a>
+					</li>
+					<li className="nav-item">
+						<a className="nav-link" href="#">
+							Contact
 						</a>
 					</li>
 				</ul>
