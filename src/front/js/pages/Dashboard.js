@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuth } from "../store/auth";
 import { Link } from "react-router-dom";
+import { BuildingList } from "../component/buildinglist";
 
 export function Dashboard() {
 	const auth = useAuth();
@@ -10,6 +11,7 @@ export function Dashboard() {
 			<h3 className="dashboard-header">Dashboard</h3>
 
 			<div className="dashboard-links">
+				<BuildingList />
 				<Link to="/registerbuilding" className="btn-links">
 					REGISTER BUILDING
 				</Link>
