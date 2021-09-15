@@ -8,6 +8,7 @@
 body{
     background-image: url(https://i.ibb.co/3vkG1wm/antonio-cuellar-K4-B1pu-V484-unsplash.jpg);
     background-position: center center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     -wekit-background-attachment: fixed;
@@ -27,6 +28,10 @@ body{
     padding: 285px;
 }
 
+.smallspace {
+    padding: 30px;
+}
+
 .frontsummary{
     text-align: center;
     font-size: 18px;
@@ -35,7 +40,13 @@ body{
     letter-spacing: 0.061em;
     margin-top: 60px;
     margin-bottom: 20px;
+    background-color: white;
+    padding-top: 25px;
+    padding-bottom: 30px;
+    padding-left: 120px;
+    padding-right: 120px;
 }
+
 .justify-nav{
     display: flex;
     justify-content: end;
