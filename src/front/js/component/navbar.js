@@ -15,11 +15,11 @@ export const Navbar = () => {
 				<span className="navbar-toggler-icon" />
 			</button>
 			<a className="navbar-brand" href="#">
-				<img className="navlogo" src="https://i.ibb.co/XCBYyTv/Logo-Makr-5vd-LDB.png" />
+				<img className="navlogo" src="https://i.ibb.co/nbtVNcG/lodgerlogo.png" />
 			</a>
 
 			<div className="collapse navbar-collapse" id="navbarTogglerDemo03">
-				<ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+				<ul className="navbar-nav mr-auto mt-2 mt-lg-0 navright">
 					<li className="nav-item active">
 						<a className="nav-link" href="#">
 							Home <span className="sr-only">(current)</span>

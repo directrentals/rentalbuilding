@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 
 .navlogo {
-    width: 80px;
+    width: 90px;
     height: 100%;
+}
+
+.navright {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
 }
 
 body{
