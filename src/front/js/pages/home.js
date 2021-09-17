@@ -6,10 +6,10 @@ export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div>
+		<div className="body">
 			<div className="space" />
 			<div>
-				<img className="frontlogo" src="https://i.ibb.co/nbtVNcG/lodgerlogo.png" />
+				<img className="frontlogo" src="https://i.ibb.co/28qQfDD/lodgerlogo2.png" />
 			</div>
 			<div className="frontcontent">
 				<div className="frontbox">
