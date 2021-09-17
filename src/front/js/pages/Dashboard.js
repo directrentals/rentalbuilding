@@ -7,23 +7,16 @@ export function Dashboard() {
 	const auth = useAuth();
 
 	return (
-		<div>
+		<div className="container">
 			<h3 className="dashboard-header">Dashboard</h3>
 
-			<div className="dashboard-links">
-				<BuildingList />
-				<Link to="/registerbuilding" className="btn-links">
-					REGISTER BUILDING
-				</Link>
-				<Link to="/registerunit" className="btn-links">
-					REGISTER UNIT
-				</Link>
-			</div>
-			<div className="exitdb">
-				<button className="btn btn-outline-primary" onClick={() => auth.logout()}>
-					Exit
-				</button>
-			</div>
+			<BuildingList />
+			<Link to="/registerbuilding" className="btn btn-primary">
+				REGISTER BUILDING
+			</Link>
+			<Link to="/registerunit" className="btn btn-primary">
+				REGISTER UNIT
+			</Link>
 		</div>
 	);
 }

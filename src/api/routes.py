@@ -51,7 +51,7 @@ def login():
     except:
         return jsonify({"message": "invalid password"}), 403
         
-    access_token = create_access_token(identity=user.id, additional_claims={"email":user.email})
+    access_token = create_access_token(identity=user.id,expires_delta=False ,additional_claims={"email":user.email})
     return jsonify({ "token": access_token, "user_id": user.id })
 
 @api.route('/userinfo', methods=['GET'])
@@ -111,6 +111,16 @@ def register_building():
     db.session.add(building)
     db.session.commit()
     return jsonify(building.serialize()), 200
+
+
+@api.route('/building', methods=['GET'])
+@jwt_required()
+def list_buildings():
+    current_user_id = get_jwt_identity()
+    buildinglist = Building.query.filter(Building.manager_id == current_user_id)
+    response = [building.serialize() for building in buildinglist]
+    return jsonify(response), 200
+        
 
 @api.route('/unit', methods=['POST'])
 @jwt_required()

@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
 
 export const Home = () => {
@@ -16,8 +15,8 @@ export const Home = () => {
 				<div className="frontbox">
 					<h1>What we do</h1>
 					<p>
-						Lodger provides the easiest solution to property owners and management staff registering
-						vacation rentals in Condominiums, HOAs, and other multi-family developments.
+						Lodger provides the easiest solution to property owners and management staff to register
+						short-term tenants for access in Condominiums, HOAs, and other multi-family developments.
 					</p>
 				</div>
 

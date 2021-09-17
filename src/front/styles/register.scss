@@ -5,7 +5,7 @@ $green: #7aada5;
 $green-lt: lighten( $green, 10% );
 $green-dk: darken( $green, 10% );
 
-html, body {
+.html, .body {
   width: 100vw;
   height: 100vh;
   margin: 0;
