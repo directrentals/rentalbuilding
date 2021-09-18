@@ -1,30 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const ManageBuildingPage = () => {
-	const [selectedTab, setSelectedTab] = React.useState("building");
+export const ManageUnitPage = () => {
+	const [selectedTab, setSelectedTab] = React.useState("unit");
 	return (
 		<div className="container">
 			<div>
 				<ul className="nav nav-tabs" id="myTab" role="tablist">
 					<li className="nav-item" role="presentation">
 						<button
-							className={"nav-link" + (selectedTab === "building" ? " active" : "")}
+							className={"nav-link" + (selectedTab === "unit" ? " active" : "")}
 							id="home-tab"
 							type="button"
 							role="tab"
-							onClick={() => setSelectedTab("building")}>
-							Building
-						</button>
-					</li>
-					<li className="nav-item" role="presentation">
-						<button
-							className={"nav-link" + (selectedTab === "units" ? " active" : "")}
-							id="profile-tab"
-							type="button"
-							role="tab"
-							onClick={() => setSelectedTab("units")}>
-							Units
+							onClick={() => setSelectedTab("unit")}>
+							Unit
 						</button>
 					</li>
 					<li className="nav-item" role="presentation">
@@ -40,18 +30,11 @@ export const ManageBuildingPage = () => {
 				</ul>
 				<div className="tab-content" id="myTabContent">
 					<div
-						className={"tab-pane fade" + (selectedTab === "building" ? " show active" : "")}
+						className={"tab-pane fade" + (selectedTab === "unit" ? " show active" : "")}
 						id="home"
 						role="tabpanel"
 						aria-labelledby="home-tab">
-						Building
-					</div>
-					<div
-						className={"tab-pane fade" + (selectedTab === "units" ? " show active" : "")}
-						id="profile"
-						role="tabpanel"
-						aria-labelledby="profile-tab">
-						Units
+						Unit
 					</div>
 					<div
 						className={"tab-pane fade" + (selectedTab === "tenants" ? " show active" : "")}

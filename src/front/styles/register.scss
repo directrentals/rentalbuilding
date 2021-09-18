@@ -16,7 +16,7 @@ $green-dk: darken( $green, 10% );
   font-family: 'Lato', sans-serif;
 }
 
-form {
+form, .regist-form {
   background-color: #eeeeee;
   width: 450px;
   margin-top: 50px;
@@ -29,7 +29,7 @@ form {
   margin-left: -230px;
   
   h2 {
-    text-transform: uppercase;
+    //text-transform: uppercase;
     text-align: center;
     font-size: 18px;
     font-weight: bold;
@@ -50,7 +50,7 @@ form {
     letter-spacing: 0.02em;
     text-align: center;
     line-height: 1.8em;
-    text-transform: uppercase;
+    //text-transform: uppercase;
     a { 
       color: #9d775f; 
       text-decoration: none;
@@ -75,7 +75,7 @@ form {
     border-bottom: 1px solid $gray-dk;
     padding-top: 8px;
     padding-bottom: 8px;
-    text-transform: uppercase;
+    //text-transform: uppercase;
     font-size: 11px;
     position: relative;
     z-index: 500;

@@ -25,6 +25,25 @@ export const useAuth = create(
 					.catch(error => set({ authError: error, authToken: null }));
 			},
 
+			registerOwner: (email, password, phone, number, building_id) => {
+				fetch(process.env.BACKEND_URL + "/api/registerowner", {
+					method: "POST",
+					mode: "cors",
+					body: JSON.stringify({ email, password, phone, number, building_id }),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(resp => {
+						if (resp.status !== 204) {
+							throw new Error("register-error");
+						}
+
+						get().loginUser(email, password);
+					})
+					.catch(error => set({ authError: error, authToken: null }));
+			},
+
 			logout: () => set({ authToken: null }),
 
 			loginUser: (email, password) => {

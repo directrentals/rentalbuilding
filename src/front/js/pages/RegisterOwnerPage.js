@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import "../../styles/register.scss";
 
@@ -7,9 +7,10 @@ export const RegisterOwnerPage = () => {
 	const [email, setEmail] = React.useState("");
 	const [password, setPassword] = React.useState("");
 	const [phone, setPhone] = React.useState("");
-	const [unit, setUnit] = React.useState("");
+	const [number, setNumber] = React.useState("");
 	const history = useHistory();
 	const auth = useAuth();
+	const params = useParams();
 
 	React.useEffect(
 		() => {
@@ -21,7 +22,7 @@ export const RegisterOwnerPage = () => {
 	);
 	return (
 		<div className="container">
-			<form className="sub-form">
+			<div className="sub-form regist-form">
 				<div className="input-contain">
 					<div className="circle circle-quill">
 						<i className="icon-circle far fa-building fa-2x" />
@@ -49,7 +50,7 @@ export const RegisterOwnerPage = () => {
 						onChange={ev => setEmail(ev.target.value)}
 						type="email"
 						className="form-control"
-						placeholder="EMAIL"
+						placeholder="Email"
 					/>
 
 					<input
@@ -66,8 +67,8 @@ export const RegisterOwnerPage = () => {
 						placeholder="Phone Number"
 					/>
 					<input
-						value={unit}
-						onChange={ev => setUnit(ev.target.value)}
+						value={number}
+						onChange={ev => setNumber(ev.target.value)}
 						type="text"
 						placeholder="Unit Number"
 					/>
@@ -75,66 +76,13 @@ export const RegisterOwnerPage = () => {
 					<div className="allsub">
 						<button
 							className="submit"
-							disabled={building.savingBuilding}
-							// onClick={() =>
-							// 	building.registerBuilding(
-							// 		name,
-							// 		phone,
-							// 		street,
-							// 		street2,
-							// 		city,
-							// 		state,
-							// 		zipcode,
-							// 		auth.authToken
-							// 	)
-							// }
-						>
+							onClick={() => auth.registerOwner(email, password, phone, number, params.building_id)}>
 							Register
 						</button>
 						<div className="submit-under" />
 					</div>
-					<svg
-						className="loader"
-						x="0px"
-						y="0px"
-						width="55px"
-						height="55px"
-						viewBox="0 0 55 55"
-						enableBackground="new 0 0 55 55"
-						xmlSpace="preserve">
-						<circle
-							fill="none"
-							strokeLinecap="round"
-							stroke="#B29EAC"
-							strokeWidth="2"
-							strokeMiterlimit="10"
-							cx="27.583"
-							cy="27.334"
-							r="26.583"
-						/>
-					</svg>
-					<svg
-						className="loader2"
-						x="0px"
-						y="0px"
-						width="55px"
-						height="55px"
-						viewBox="0 0 55 55"
-						enableBackground="new 0 0 55 55"
-						xmlSpace="preserve">
-						<circle
-							fill="none"
-							strokeLinecap="round"
-							stroke="#B29EAC"
-							strokeWidth="2"
-							strokeMiterlimit="10"
-							cx="27.583"
-							cy="27.334"
-							r="26.583"
-						/>
-					</svg>
 				</div>
-			</form>
+			</div>
 		</div>
 	);
 };

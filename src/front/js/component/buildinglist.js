@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useQueryData } from "../store/data";
 
 export const BuildingList = () => {
@@ -18,7 +19,9 @@ export const BuildingList = () => {
 				{buildings.data.map((building, index) => {
 					return (
 						<tr key={index}>
-							<td>{building.name}</td>
+							<td>
+								<Link to={"/managebuilding/" + building.id}>{building.name}</Link>
+							</td>
 							<td>{building.street}</td>
 						</tr>
 					);

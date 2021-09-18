@@ -17,6 +17,7 @@ import { RegisterOwnerPage } from "./pages/RegisterOwnerPage";
 import { RegisterTenantPage } from "./pages/RegisterTenantPage";
 import { CheckinTenantPage } from "./pages/CheckinTenantPage";
 import { RegisterUnitPage } from "./pages/RegisterUnitPage";
+import { ManageUnitPage } from "./pages/ManageUnitPage";
 
 //create your first component
 const Layout = () => {
@@ -66,6 +67,12 @@ const Layout = () => {
 							</SecurePage>
 						</Route>
 
+						<Route exact path="/manageunit/:id">
+							<SecurePage>
+								<ManageUnitPage />
+							</SecurePage>
+						</Route>
+
 						<Route exact path="/checkintenant/:id">
 							<SecurePage>
 								<CheckinTenantPage />
@@ -78,7 +85,7 @@ const Layout = () => {
 							</SecurePage>
 						</Route>
 
-						<Route exact path="/registerowner">
+						<Route exact path="/registerowner/:building_id">
 							<RegisterOwnerPage />
 						</Route>
 

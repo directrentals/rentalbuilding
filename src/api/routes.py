@@ -23,11 +23,13 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
+
+
 @api.route('/register', methods=['POST'])
 def register():
     content = request.get_json(silent=True)
-    user = User(email = content["email"], password = ph.hash(content["password"]), is_active = True)
-
+    user = User(email = content["email"], password = ph.hash(content["password"]), is_active = True, is_manager = True)
+    
     db.session.add(user)
     db.session.commit()
 
@@ -36,6 +38,31 @@ def register():
     }
 
     return jsonify(response_body), 204
+
+
+
+@api.route('/registerowner', methods=['POST'])
+def register_owner():
+    content = request.get_json(silent=True)
+    user = User(email = content["email"], password = ph.hash(content["password"]), phone = content["phone"], is_active = True, is_manager = False)
+    db.session.add(user)
+    db.session.commit()
+
+    unit = Unit(
+        number = content["number"],
+        owner_id = user.id,
+        building_id = content["building_id"]
+    )
+    db.session.add(unit)
+    db.session.commit()
+
+    response_body = {
+        "message": "User Created"
+    }
+
+    return jsonify(response_body), 204
+
+
 
 @api.route('/login', methods=['POST'])
 def login():
@@ -53,6 +80,8 @@ def login():
         
     access_token = create_access_token(identity=user.id,expires_delta=False ,additional_claims={"email":user.email})
     return jsonify({ "token": access_token, "user_id": user.id })
+
+
 
 @api.route('/userinfo', methods=['GET'])
 @jwt_required()
@@ -140,6 +169,16 @@ def register_unit():
     }
     return jsonify(response_body), 200
 
+
+@api.route('/unit', methods=['GET'])
+@jwt_required()
+def list_units():
+    current_user_id = get_jwt_identity()
+    unitlist = Unit.query.filter(Unit.owner_id == current_user_id)
+    response = [unit.serialize() for unit in unitlist]
+    return jsonify(response), 200
+
+
 @api.route('/tenant/<int:id>', methods=['PATCH'])
 @jwt_required()
 def checkin_tenant(id):
@@ -160,29 +199,7 @@ def checkin_tenant(id):
     return jsonify(response_body), 200
 
 
-@api.route('/register-owner', methods=['POST'])
-def register_owner():
-    content = request.get_json(silent=True)
-    user = User(
-        email = content["email"], 
-        password = ph.hash(content["password"]), 
-        is_active = True
-    )
-  
-    db.session.add(user)
-    db.session.commit()
-    unit = Unit(
-        number = content["number"],
-        owner_id = user.id,
-        building_id = content["building_id"]
-    )
-    db.session.add(unit)
 
-    response_body = {
-        "message": "Owner Created"
-    }
-
-    return jsonify(response_body), 204
 
 
 @api.route('/tenant', methods=['POST'])
