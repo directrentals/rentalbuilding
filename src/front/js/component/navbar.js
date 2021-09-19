@@ -5,7 +5,7 @@ import { useAuth } from "../store/auth";
 export const Navbar = () => {
 	const auth = useAuth();
 	return (
-		<nav className="navbar navbar-expand-lg navbar-light bg-light">
+		<nav className="navbar navbar-expand-lg navbar-light bg-light nav-fixed">
 			<button
 				className="navbar-toggler"
 				type="button"
