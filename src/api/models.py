@@ -89,6 +89,7 @@ class Tenant(db.Model):
     status = db.Column(db.String(20), nullable =False, default="created")
     pax = db.Column(db.Text, nullable =False)
     pax_count = db.Column(db.Integer)
+    
 
     def __repr__(self):
         return f'Tenant {self.name} @ {self.unit}'

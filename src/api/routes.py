@@ -222,3 +222,13 @@ def register_tenant():
         "message": "Tenant Registered"
     }
     return jsonify(response_body), 200
+
+
+@api.route('/tenant', methods=['GET'])
+@jwt_required()
+def list_tenant():
+    current_user_id = get_jwt_identity()
+    tenantlist = Tenant.query.all()
+    response = [tenant.serialize() for tenant in tenantlist]
+    return jsonify(response), 200
+        

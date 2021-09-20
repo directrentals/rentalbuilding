@@ -3,6 +3,7 @@ import { useAuth } from "../store/auth";
 import { Link } from "react-router-dom";
 import { BuildingList } from "../component/buildinglist";
 import { UnitList } from "../component/unitlist";
+import { TenantList } from "../component/tenantlist";
 
 export function Dashboard() {
 	const auth = useAuth();
@@ -18,6 +19,11 @@ export function Dashboard() {
 			<UnitList />
 			<Link to="/registerunit" className="btn btn-primary">
 				REGISTER UNIT
+			</Link>
+
+			<TenantList />
+			<Link to="/registerunit" className="btn btn-primary">
+				TENANT LIST
 			</Link>
 		</div>
 	);

@@ -14,7 +14,7 @@ export const TenantList = () => {
 					<th scope="col">Name</th>
 					<th scope="col">Unit</th>
 					<th scope="col">Check-In</th>
-                    <th scope="col">Check-Out</th>
+					<th scope="col">Check-Out</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -22,10 +22,11 @@ export const TenantList = () => {
 					return (
 						<tr key={index}>
 							<td>
-								<Link to={"/managetenant/" + tenant.id}>{tenant.number}</Link>
+								<Link to={"/managetenant/" + tenant.id}>{tenant.unit.id}</Link>
 							</td>
-							<td>{tenant.building.name}</td>
-							<td>{tenant.building.manager.email}</td>
+							<td>{tenant.name}</td>
+							<td>{tenant.check_in}</td>
+							<td>{tenant.check_out}</td>
 						</tr>
 					);
 				})}

@@ -26,6 +26,7 @@ export const useQueryData = endpoint => {
 						return resp.json();
 					})
 					.then(data => {
+						console.log(endpoint, data);
 						setData(data);
 						setLoading(false);
 					})
