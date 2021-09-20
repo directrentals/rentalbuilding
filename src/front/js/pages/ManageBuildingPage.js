@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 
-export const ManageBuildingPage = props => {
+export const ManageBuildingPage = () => {
 	const [selectedTab, setSelectedTab] = React.useState("building");
 	const params = useParams();
 
