@@ -7,7 +7,6 @@ export const Home = () => {
 
 	return (
 		<div className="body">
-			<div className="space" />
 			<div>
 				<img className="frontlogo" src="https://i.ibb.co/28qQfDD/lodgerlogo2.png" />
 			</div>
@@ -28,8 +27,32 @@ export const Home = () => {
 					</p>
 				</div>
 
-				<div className="frontbox">testestestsetetestsestestsetset</div>
+				<div className="frontbox contact">
+					<h1>Contact us!</h1>
+
+					<div>
+						<br />
+						<textarea rows="1" cols="30">
+							Full name
+						</textarea>{" "}
+						<br />
+						<br />
+						<textarea rows="1" cols="30">
+							E-mail
+						</textarea>
+						<br />
+						<br />
+						<textarea rows="4" cols="30">
+							How can we help you?
+						</textarea>
+						<br />
+						<br />
+						<input type="submit" value="Submit" className="submit" /> <br /> <br />
+						<p>Or e-mail us directly at info@lodger.com</p>
+					</div>
+				</div>
 			</div>
+			<div className="morespace" />
 		</div>
 	);
 };

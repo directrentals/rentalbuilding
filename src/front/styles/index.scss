@@ -46,9 +46,7 @@
 
 }
 
-.smallspace {
-    padding: 30px;
-}
+
 .frontcontent{
     background-color: white;
     display: flex;
@@ -118,6 +116,18 @@
     .btn-links:hover {
         background: #D41872;
         color:blue;
+    }
+
+    .contact {
+        padding-bottom: 30px;
+    }
+
+    .morespace {
+        padding:100px;
+    }
+
+    .submit {
+        text-align: center;
     }
 
     .footcolor{
