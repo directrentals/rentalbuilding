@@ -27,7 +27,7 @@ export function RegisterBuildingPage() {
 	);
 
 	return (
-		<div className="container">
+		<div className="container space-navbar">
 			<form className="sub-form">
 				<div className="input-contain">
 					<div className="circle circle-quill">

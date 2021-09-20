@@ -17,7 +17,7 @@ export function LoginUser() {
 	);
 
 	return (
-		<div className="container">
+		<div className="container space-navbar">
 			<h3>Login User</h3>
 			{auth.authError && <div className="alert alert-danger">Authentication Error</div>}
 

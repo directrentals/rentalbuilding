@@ -16,13 +16,9 @@ export function Dashboard() {
 			<Link to="/registerbuilding" className="btn btn-primary">
 				REGISTER BUILDING
 			</Link>
-			<UnitList />
-			<Link to="/registerunit" className="btn btn-primary">
-				REGISTER UNIT
-			</Link>
 
 			<TenantList />
-			<Link to="/registerunit" className="btn btn-primary">
+			<Link to="/registertenant" className="btn btn-primary">
 				TENANT LIST
 			</Link>
 		</div>

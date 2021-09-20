@@ -1,10 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-export const ManageBuildingPage = () => {
+export const ManageBuildingPage = props => {
 	const [selectedTab, setSelectedTab] = React.useState("building");
+	const params = useParams();
+
 	return (
-		<div className="container">
+		<div className="container space-navbar">
 			<div>
 				<ul className="nav nav-tabs" id="myTab" role="tablist">
 					<li className="nav-item" role="presentation">
@@ -60,6 +62,9 @@ export const ManageBuildingPage = () => {
 						aria-labelledby="contact-tab">
 						Tenants
 					</div>
+					<Link to={"/registerunit/" + params.id} className="btn btn-primary">
+						REGISTER UNIT
+					</Link>
 				</div>
 			</div>
 		</div>

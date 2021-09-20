@@ -18,7 +18,7 @@ export function RegisterUser() {
 	);
 
 	return (
-		<div className="container">
+		<div className="container space-navbar">
 			<h3>Register User</h3>
 			{auth.authError && <div className="alert alert-danger">Authentication Error</div>}
 

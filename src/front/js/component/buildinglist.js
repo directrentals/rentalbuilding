@@ -8,7 +8,7 @@ export const BuildingList = () => {
 		return <div>loading</div>;
 	}
 	return (
-		<table className="table">
+		<table className="table space-navbar">
 			<thead>
 				<tr>
 					<th scope="col">Name</th>

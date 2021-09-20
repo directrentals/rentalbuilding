@@ -21,7 +21,7 @@ export const RegisterOwnerPage = () => {
 		[auth.authToken]
 	);
 	return (
-		<div className="container">
+		<div className="container space-navbar">
 			<div className="sub-form regist-form">
 				<div className="input-contain">
 					<div className="circle circle-quill">

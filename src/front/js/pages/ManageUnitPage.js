@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const ManageUnitPage = () => {
 	const [selectedTab, setSelectedTab] = React.useState("unit");
 	return (
-		<div className="container">
+		<div className="container space-navbar">
 			<div>
 				<ul className="nav nav-tabs" id="myTab" role="tablist">
 					<li className="nav-item" role="presentation">
