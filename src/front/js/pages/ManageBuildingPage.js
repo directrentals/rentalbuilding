@@ -1,5 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
+import { BuildingInfo } from "../component/BuildingInfo";
+import { BuildingUnits } from "../component/BuildingUnits";
 
 export const ManageBuildingPage = () => {
 	const [selectedTab, setSelectedTab] = React.useState("building");
@@ -46,14 +48,14 @@ export const ManageBuildingPage = () => {
 						id="home"
 						role="tabpanel"
 						aria-labelledby="home-tab">
-						Building
+						<BuildingInfo id={params.id} />
 					</div>
 					<div
 						className={"tab-pane fade" + (selectedTab === "units" ? " show active" : "")}
 						id="profile"
 						role="tabpanel"
 						aria-labelledby="profile-tab">
-						Units
+						<BuildingUnits id={params.id} />
 					</div>
 					<div
 						className={"tab-pane fade" + (selectedTab === "tenants" ? " show active" : "")}

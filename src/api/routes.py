@@ -179,6 +179,19 @@ def list_units():
     return jsonify(response), 200
 
 
+@api.route('/buildingunits/<int:id>', methods=['GET'])
+@jwt_required()
+def building_units(id):
+    current_user_id = get_jwt_identity()
+    building = Building.query.filter(Building.id == id).first()
+    if building.manager_id != current_user_id:
+        return jsonify({"message": "Unauthorized user"}), 403
+    unitlist = Unit.query.filter(Unit.building_id == building.id)
+
+    response = [unit.serialize() for unit in unitlist]
+    return jsonify(response), 200
+
+
 @api.route('/tenant/<int:id>', methods=['PATCH'])
 @jwt_required()
 def checkin_tenant(id):
