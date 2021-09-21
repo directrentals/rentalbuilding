@@ -65,9 +65,6 @@ export const ManageBuildingPage = () => {
 						aria-labelledby="contact-tab">
 						<BuildingTenants id={params.id} />
 					</div>
-					<Link to={"/registerunit/" + params.id} className="btn btn-primary">
-						REGISTER UNIT
-					</Link>
 				</div>
 			</div>
 		</div>

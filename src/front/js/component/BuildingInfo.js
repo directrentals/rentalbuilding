@@ -8,7 +8,16 @@ export const BuildingInfo = ({ id }) => {
 	if (building.loading || !building.data) {
 		return <div>loading</div>;
 	}
-	return <div>{building.data.name}</div>;
+	return (
+		<div>
+			{building.data.name}
+
+			<code>
+				https://lodger.com/registerowner/
+				{id}
+			</code>
+		</div>
+	);
 };
 BuildingInfo.propTypes = {
 	id: PropTypes.string
