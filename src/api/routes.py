@@ -186,9 +186,22 @@ def building_units(id):
     building = Building.query.filter(Building.id == id).first()
     if building.manager_id != current_user_id:
         return jsonify({"message": "Unauthorized user"}), 403
-    unitlist = Unit.query.filter(Unit.building_id == building.id)
+    unitlist = Unit.query.filter(Unit.building_id == building.id).order_by(Unit.number)
 
     response = [unit.serialize() for unit in unitlist]
+    return jsonify(response), 200
+    
+
+@api.route('/buildingtenants/<int:id>', methods=['GET'])
+@jwt_required()
+def building_tenants(id):
+    current_user_id = get_jwt_identity()
+    building = Building.query.filter(Building.id == id).first()
+    if building.manager_id != current_user_id:
+        return jsonify({"message": "Unauthorized user"}), 403
+    tenantlist = Tenant.query.join(Unit, Tenant.unit_id == Unit.id).filter(Unit.building_id == building.id).order_by(Tenant.check_in)
+
+    response = [tenant.serialize() for tenant in tenantlist]
     return jsonify(response), 200
 
 

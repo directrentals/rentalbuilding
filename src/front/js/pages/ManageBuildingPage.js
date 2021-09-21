@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { BuildingInfo } from "../component/BuildingInfo";
+import { BuildingTenants } from "../component/BuildingTenants";
 import { BuildingUnits } from "../component/BuildingUnits";
 
 export const ManageBuildingPage = () => {
@@ -62,7 +63,7 @@ export const ManageBuildingPage = () => {
 						id="contact"
 						role="tabpanel"
 						aria-labelledby="contact-tab">
-						Tenants
+						<BuildingTenants id={params.id} />
 					</div>
 					<Link to={"/registerunit/" + params.id} className="btn btn-primary">
 						REGISTER UNIT
