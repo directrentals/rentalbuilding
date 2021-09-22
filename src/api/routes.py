@@ -89,12 +89,8 @@ def userinfo():
     current_user_id = get_jwt_identity()
     
     user = User.query.filter(User.id == current_user_id).first()
-    
-    response_body = {
-        "message": f"Hello {user.email} "
-    }
 
-    return jsonify(response_body), 200
+    return jsonify(user.serialize()), 200
 
 
 @api.route('/buildinginfo/<int:id>', methods=['GET'])

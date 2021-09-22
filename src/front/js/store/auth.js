@@ -46,24 +46,37 @@ export const useAuth = create(
 
 			logout: () => set({ authToken: null }),
 
-			loginUser: (email, password) => {
-				fetch(process.env.BACKEND_URL + "/api/login", {
-					method: "POST",
-					mode: "cors",
-					body: JSON.stringify({ email, password }),
-					headers: {
-						"Content-Type": "application/json"
-					}
-				})
-					.then(resp => {
-						if (resp.status !== 200) {
-							throw new Error("authentication-error");
+			loginUser: async (email, password) => {
+				try {
+					const resp = await fetch(process.env.BACKEND_URL + "/api/login", {
+						method: "POST",
+						mode: "cors",
+						body: JSON.stringify({ email, password }),
+						headers: {
+							"Content-Type": "application/json"
 						}
+					});
 
-						return resp.json();
-					})
-					.then(data => set({ authToken: data.token, authError: null }))
-					.catch(error => set({ authToken: null, authError: error }));
+					if (resp.status !== 200) {
+						throw new Error("authentication-error");
+					}
+
+					const data = await resp.json();
+
+					const respinfo = await fetch(process.env.BACKEND_URL + "/api/userinfo", {
+						method: "GET",
+						mode: "cors",
+						headers: {
+							Authorization: "Bearer " + data.token
+						}
+					});
+
+					const userdata = await respinfo.json();
+
+					set({ authToken: data.token, authError: null, user: userdata });
+				} catch (error) {
+					set({ authToken: null, authError: error });
+				}
 			}
 		}),
 		{
