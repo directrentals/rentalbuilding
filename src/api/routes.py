@@ -232,7 +232,6 @@ def register_tenant():
     tenant = Tenant(
         name = content["name"], 
         email = content["email"],
-        unit_id = content["unit_id"], 
         check_in = content["check_in"],
         check_out = content["check_out"],
         pax = content["pax"],

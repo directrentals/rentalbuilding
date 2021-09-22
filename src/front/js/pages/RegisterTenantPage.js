@@ -67,13 +67,6 @@ export function RegisterTenantPage() {
 					/>
 
 					<input
-						value={unit_id}
-						onChange={ev => setUnit_id(ev.target.value)}
-						type="text"
-						placeholder="Unit Number"
-					/>
-
-					<input
 						value={check_in}
 						onChange={ev => setCheck_in(ev.target.value)}
 						placeholder="Check-In Date"
