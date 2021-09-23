@@ -10,7 +10,13 @@ export const BuildingInfo = ({ id }) => {
 	}
 	return (
 		<div>
-			{building.data.name}
+			<div>Name: {building.data.name}</div>
+			<div>Phone: {building.data.phone}</div>
+			<div>Address: {building.data.street}</div>
+			<div>Address: {building.data.street2}</div>
+			<div>City: {building.data.city}</div>
+			<div>State: {building.data.state}</div>
+			<div>Zip Code: {building.data.zipcode}</div>
 			<div />
 			<code>
 				https://lodger.com/registerowner/
