@@ -3,8 +3,9 @@ import { useHistory, useParams } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import { useUnit } from "../store/unit";
 import { UnitList } from "../component/unitlist";
+import { BuildingUnitInfo } from "../component/BuildingUnitInfo";
 
-export function RegisterUnitPage() {
+export const RegisterUnitPage = () => {
 	const [owner, setOwner] = React.useState("");
 	const [building, setBuilding] = React.useState("");
 	const [number, setNumber] = React.useState("");
@@ -39,7 +40,9 @@ export function RegisterUnitPage() {
 			</div>*/}
 			<div className="form-floating">
 				<label>Building</label>
-				<div>Name</div>
+				<div>
+					<BuildingUnitInfo id={params.buildingId} />
+				</div>
 			</div>
 
 			<div className="form-floating">
@@ -58,4 +61,4 @@ export function RegisterUnitPage() {
 			</button>
 		</div>
 	);
-}
+};

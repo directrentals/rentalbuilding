@@ -3,22 +3,13 @@ import { Link } from "react-router-dom";
 import { useQueryData } from "../store/data";
 import PropTypes from "prop-types";
 
-export const BuildingInfo = ({ id }) => {
+export const BuildingUnitInfo = ({ id }) => {
 	const building = useQueryData("/api/buildinginfo/" + id);
 	if (building.loading || !building.data) {
 		return <div>loading</div>;
 	}
-	return (
-		<div>
-			{building.data.name}
-			<div />
-			<code>
-				https://lodger.com/registerowner/
-				{id}
-			</code>
-		</div>
-	);
+	return <div>{building.data.name}</div>;
 };
-BuildingInfo.propTypes = {
+BuildingUnitInfo.propTypes = {
 	id: PropTypes.string
 };

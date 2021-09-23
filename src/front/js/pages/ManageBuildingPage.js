@@ -57,6 +57,10 @@ export const ManageBuildingPage = () => {
 						role="tabpanel"
 						aria-labelledby="profile-tab">
 						<BuildingUnits id={params.id} />
+						<div />
+						<Link to={"/registerunit/" + params.id} className="btn btn-primary">
+							REGISTER UNIT
+						</Link>
 					</div>
 					<div
 						className={"tab-pane fade" + (selectedTab === "tenants" ? " show active" : "")}
