@@ -41,7 +41,7 @@ export const useQueryData = endpoint => {
 	return { loading, data };
 };
 
-export const useUpdateData = (endpoint, method) => {
+export const useUpdateData = (endpoint, method = "POST") => {
 	const [updating, setUpdating] = React.useState(false);
 	const [updated, setUpdated] = React.useState(false);
 	const auth = useAuth();

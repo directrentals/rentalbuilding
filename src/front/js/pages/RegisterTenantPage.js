@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import "../../styles/register.scss";
+import { useQueryData, useUpdateData } from "../store/data";
 
 export function RegisterTenantPage() {
 	const [name, setName] = React.useState("");
@@ -10,23 +11,27 @@ export function RegisterTenantPage() {
 	const [check_in, setCheck_in] = React.useState("");
 	const [check_out, setCheck_out] = React.useState("");
 	const [pax, setPax] = React.useState("");
-	const [pax_count, setPax_count] = React.useState("");
 
 	const history = useHistory();
 	const auth = useAuth();
+	const tenant = useUpdateData("/api/tenant");
 
 	React.useEffect(
 		() => {
-			if (auth.authToken) {
-				history.push("/registertenant");
+			if (tenant.updated) {
+				history.push("/dashboard");
 			}
 		},
-		[auth.authToken]
+		[tenant.updated]
 	);
 
+	const units = useQueryData("/api/unit");
+	if (units.loading || !units.data) {
+		return <div>loading</div>;
+	}
 	return (
 		<div className="container space-navbar">
-			<form className="sub-form">
+			<div className="sub-form">
 				<div className="input-contain">
 					<div className="circle circle-quill">
 						<img
@@ -51,6 +56,18 @@ export function RegisterTenantPage() {
 						</svg>
 					</div>
 					<h2 className="info">Register Tenant</h2>
+
+					<select className="form-select" value={unit_id} onChange={ev => setUnit_id(ev.target.value)}>
+						<option selected>Select unit</option>
+						{units.data.map((unit, index) => {
+							return (
+								<option key={index} value={unit.id}>
+									{unit.number}
+								</option>
+							);
+						})}
+					</select>
+
 					<input
 						id="building"
 						value={name}
@@ -96,22 +113,24 @@ export function RegisterTenantPage() {
 						placeholder="Additional tenants"
 					/>
 
-					<input
-						value={pax_count}
-						onChange={ev => setPax_count(ev.target.value)}
-						type="text"
-						placeholder="How many more tenants?"
-					/>
 					<div className="allsub">
 						<button
 							className="submit"
 							onClick={() =>
-								auth.registerBuilding(name, email, unit_id, check_in, check_out, pax, pax_count)
+								tenant.updateData({
+									name: name,
+									email: email,
+									unit_id: unit_id,
+									check_in: check_in,
+									check_out: check_out,
+									pax: pax
+								})
 							}>
 							Register Tenants
 						</button>
 						<div className="submit-under" />
 					</div>
+
 					<svg
 						className="loader"
 						x="0px"
@@ -153,7 +172,7 @@ export function RegisterTenantPage() {
 						/>
 					</svg>
 				</div>
-			</form>
+			</div>
 		</div>
 	);
 }

@@ -3,6 +3,7 @@ import { useAuth } from "../store/auth";
 import { Link, useParams } from "react-router-dom";
 import { BuildingList } from "../component/buildinglist";
 import { UnitList } from "../component/unitlist";
+import { OwnerTenantList } from "../component/OwnerTenantList";
 import PropTypes from "prop-types";
 
 export function Dashboard() {
@@ -24,6 +25,15 @@ export function Dashboard() {
 			<Link to="/registerunit/" className="btn btn-primary">
 				REGISTER UNIT
 			</Link>
+
+			{!auth.user.is_manager && (
+				<div>
+					<OwnerTenantList />
+					<Link to="/registertenant" className="btn btn-primary">
+						REGISTER TENANT
+					</Link>
+				</div>
+			)}
 		</div>
 	);
 }

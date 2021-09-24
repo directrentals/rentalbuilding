@@ -201,6 +201,16 @@ def building_tenants(id):
     return jsonify(response), 200
 
 
+@api.route('/ownertenants', methods=['GET'])
+@jwt_required()
+def owner_tenants():
+    current_user_id = get_jwt_identity()
+    tenantlist = Tenant.query.join(Unit, Tenant.unit_id == Unit.id).filter(Unit.owner_id == current_user_id).order_by(Tenant.check_in)
+
+    response = [tenant.serialize() for tenant in tenantlist]
+    return jsonify(response), 200
+
+
 @api.route('/tenant/<int:id>', methods=['PATCH'])
 @jwt_required()
 def checkin_tenant(id):
@@ -231,6 +241,7 @@ def register_tenant():
     current_user_id = get_jwt_identity()
     tenant = Tenant(
         name = content["name"], 
+        unit_id = content["unit_id"],
         email = content["email"],
         check_in = content["check_in"],
         check_out = content["check_out"],
