@@ -20,31 +20,26 @@ export const Home = () => {
 				</div>
 
 				<div className="frontbox">
-					<h1>How much?</h1>
+					<h1>Pricing</h1>
 					<p>
 						Contact us for a quote! If you are not satisfied after the first 30 days, we&apos;ll give you
 						back 100% of your initial monthly fee.{" "}
 					</p>
 				</div>
-
-				<div className="frontbox contact">
+			</div>
+			<div className="contactdiv">
+				<div className="contactbox">
 					<h1>Contact us!</h1>
 
 					<div>
 						<br />
-						<textarea rows="1" cols="30">
-							Full name
-						</textarea>{" "}
+						<input type="text" placeholder="Enter name" size="56" className="inputs" />
 						<br />
 						<br />
-						<textarea rows="1" cols="30">
-							E-mail
-						</textarea>
+						<input type="text" placeholder="Enter E-Mail" size="56" className="inputs" />
 						<br />
 						<br />
-						<textarea rows="4" cols="30">
-							How can we help you?
-						</textarea>
+						<input type="text" placeholder="How can we help you" className="comment-box" />
 						<br />
 						<br />
 						<input type="submit" value="Submit" className="submit" /> <br /> <br />
