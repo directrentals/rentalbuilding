@@ -27,7 +27,7 @@ export const Home = () => {
 					</p>
 				</div>
 			</div>
-			<div className="contactdiv">
+			{/* <div className="contactdiv">
 				<div className="contactbox">
 					<h1>Contact us!</h1>
 
@@ -46,8 +46,8 @@ export const Home = () => {
 						<p>Or e-mail us directly at info@lodger.com</p>
 					</div>
 				</div>
-			</div>
-			<div className="morespace" />
+			</div> */}
+			{/* <div className="morespace" /> */}
 		</div>
 	);
 };

@@ -11,7 +11,7 @@ export function Dashboard() {
 	const params = useParams();
 
 	return (
-		<div className="container">
+		<div className="container space-navbar">
 			<h3 className="dashboard-header">Dashboard</h3>
 			{auth.user.is_manager && (
 				<div>

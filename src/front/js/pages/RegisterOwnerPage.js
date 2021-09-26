@@ -22,7 +22,7 @@ export const RegisterOwnerPage = () => {
 	);
 	return (
 		<div className="container space-navbar">
-			<div className="sub-form regist-form">
+			<div className="sub-form regist-form form">
 				<div className="input-contain">
 					<div className="circle circle-quill">
 						<i className="icon-circle far fa-building fa-2x" />

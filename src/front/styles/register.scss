@@ -10,23 +10,30 @@ $green-dk: darken( $green, 10% );
   height: 100vh;
   margin: 0;
   padding: 0;
-  background:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://i.ibb.co/3vkG1wm/antonio-cuellar-K4-B1pu-V484-unsplash.jpg") no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
   font-family: 'Lato', sans-serif;
 }
 
-form, .regist-form {
+.form, .regist-form {
+  
   background-color: #eeeeee;
   width: 450px;
   margin-top: 50px;
   margin-bottom: 50px;
-  position: absolute;
   z-index: 10;
   padding: 60px 60px 80px;
   padding-bottom: 60px;
   left: 50%;
-  margin-left: -230px;
+  position: static;
+  
+ 
+  }
+
+  .center{
+    display: flex;
+  justify-content: center;
+  align-items: center;
   
   h2 {
     //text-transform: uppercase;

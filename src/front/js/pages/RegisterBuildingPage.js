@@ -27,8 +27,8 @@ export function RegisterBuildingPage() {
 	);
 
 	return (
-		<div className="container space-navbar">
-			<form className="sub-form">
+		<div className="container space-navbar center">
+			<form className="form sub-form">
 				<div className="input-contain">
 					<div className="circle circle-quill">
 						<i className="icon-circle far fa-building fa-2x" />
@@ -106,6 +106,7 @@ export function RegisterBuildingPage() {
 						</button>
 						<div className="submit-under" />
 					</div>
+					<div className="space-navbar" />
 					<svg
 						className="loader"
 						x="0px"
