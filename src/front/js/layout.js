@@ -18,6 +18,7 @@ import { RegisterTenantPage } from "./pages/RegisterTenantPage";
 import { CheckinTenantPage } from "./pages/CheckinTenantPage";
 import { RegisterUnitPage } from "./pages/RegisterUnitPage";
 import { ManageUnitPage } from "./pages/ManageUnitPage";
+// import { ContactUs } from "./pages/Contact"
 
 //create your first component
 const Layout = () => {
@@ -34,6 +35,10 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
+
+						{/* <Route exact path="/contact">
+							<ContactUs />
+						</Route> */}
 
 						<Route exact path="/register">
 							<RegisterUser />
