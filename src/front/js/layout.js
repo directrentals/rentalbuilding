@@ -19,7 +19,6 @@ import { CheckinTenantPage } from "./pages/CheckinTenantPage";
 import { RegisterUnitPage } from "./pages/RegisterUnitPage";
 import { ManageUnitPage } from "./pages/ManageUnitPage";
 
-
 //create your first component
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -34,10 +33,6 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/">
 							<Home />
-						</Route>
-
-						<Route exact path="/contact">
-							<ContactUs />
 						</Route>
 
 						<Route exact path="/register">
