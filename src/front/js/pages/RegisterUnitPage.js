@@ -2,12 +2,13 @@ import React from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import { useUnit } from "../store/unit";
-import { UnitList } from "../component/unitlist";
 import { BuildingUnitInfo } from "../component/BuildingUnitInfo";
+import { useQueryData, useUpdateData } from "../store/data";
 
 export const RegisterUnitPage = () => {
 	const [owner, setOwner] = React.useState("");
 	const [building, setBuilding] = React.useState("");
+	const [building_id, setBuilding_id] = React.useState("");
 	const [number, setNumber] = React.useState("");
 	const params = useParams();
 
@@ -15,10 +16,19 @@ export const RegisterUnitPage = () => {
 	const unit = useUnit();
 	const auth = useAuth();
 
+	// React.useEffect(
+	// 	() => {
+	// 		if (auth.authToken) {
+	// 			history.push("/registerunit/" + params.buildingId);
+	// 		}
+	// 	},
+	// 	[auth.authToken]
+	// );
+
 	React.useEffect(
 		() => {
 			if (auth.authToken) {
-				history.push("/registerunit/" + params.buildingId);
+				history.push("/registerunit/");
 			}
 		},
 		[auth.authToken]
@@ -40,6 +50,7 @@ export const RegisterUnitPage = () => {
 			</div>*/}
 			<div className="form-floating">
 				<label>Building</label>
+
 				<div>
 					<BuildingUnitInfo id={params.buildingId} />
 				</div>

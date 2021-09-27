@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
+import { FrontPage } from "../component/FrontPage";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -26,6 +27,9 @@ export const Home = () => {
 						back 100% of your initial monthly fee.{" "}
 					</p>
 				</div>
+			</div>
+			<div>
+				<FrontPage />
 			</div>
 			{/* <div className="contactdiv">
 				<div className="contactbox">

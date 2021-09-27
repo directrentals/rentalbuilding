@@ -57,7 +57,11 @@ export function RegisterTenantPage() {
 					</div>
 					<h2 className="info">Register Tenant</h2>
 
-					<select className="form-select" value={unit_id} onChange={ev => setUnit_id(ev.target.value)}>
+					<select
+						id="building"
+						className="form-select"
+						value={unit_id}
+						onChange={ev => setUnit_id(ev.target.value)}>
 						<option selected>Select unit</option>
 						{units.data.map((unit, index) => {
 							return (
@@ -68,13 +72,7 @@ export function RegisterTenantPage() {
 						})}
 					</select>
 
-					<input
-						id="building"
-						value={name}
-						onChange={ev => setName(ev.target.value)}
-						type="text"
-						placeholder="Full Name"
-					/>
+					<input value={name} onChange={ev => setName(ev.target.value)} type="text" placeholder="Full Name" />
 
 					<input
 						value={email}
