@@ -24,7 +24,7 @@ export const Navbar = () => {
 				<div className="collapse navbar-collapse" id="navbarTogglerDemo03">
 					<ul className="navbar-nav mr-auto mt-2 mt-lg-0 navright">
 						<li className="nav-item">
-							<a className="nav-link" href="/home">
+							<a className="nav-link" href="/">
 								Home
 							</a>
 						</li>

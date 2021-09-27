@@ -30,8 +30,8 @@ export function RegisterTenantPage() {
 		return <div>loading</div>;
 	}
 	return (
-		<div className="container space-navbar">
-			<div className="form sub-form">
+		<div className="container space-navbar center">
+			<div className="form sub-form regist-form">
 				<div className="input-contain">
 					<div className="circle circle-quill">
 						<img

@@ -28,7 +28,7 @@ export function RegisterBuildingPage() {
 
 	return (
 		<div className="container space-navbar center">
-			<form className="form sub-form">
+			<div className="form sub-form regist-form">
 				<div className="input-contain">
 					<div className="circle circle-quill">
 						<i className="icon-circle far fa-building fa-2x" />
@@ -106,49 +106,8 @@ export function RegisterBuildingPage() {
 						</button>
 						<div className="submit-under" />
 					</div>
-					<div className="space-navbar" />
-					<svg
-						className="loader"
-						x="0px"
-						y="0px"
-						width="55px"
-						height="55px"
-						viewBox="0 0 55 55"
-						enableBackground="new 0 0 55 55"
-						xmlSpace="preserve">
-						<circle
-							fill="none"
-							strokeLinecap="round"
-							stroke="#B29EAC"
-							strokeWidth="2"
-							strokeMiterlimit="10"
-							cx="27.583"
-							cy="27.334"
-							r="26.583"
-						/>
-					</svg>
-					<svg
-						className="loader2"
-						x="0px"
-						y="0px"
-						width="55px"
-						height="55px"
-						viewBox="0 0 55 55"
-						enableBackground="new 0 0 55 55"
-						xmlSpace="preserve">
-						<circle
-							fill="none"
-							strokeLinecap="round"
-							stroke="#B29EAC"
-							strokeWidth="2"
-							strokeMiterlimit="10"
-							cx="27.583"
-							cy="27.334"
-							r="26.583"
-						/>
-					</svg>
 				</div>
-			</form>
+			</div>
 		</div>
 	);
 }
