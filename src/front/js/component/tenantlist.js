@@ -11,8 +11,9 @@ export const TenantList = () => {
 		<table className="table">
 			<thead>
 				<tr>
+					<th scope="col">Unit Id</th>
+					{/* <th scope="col">Unit</th> */}
 					<th scope="col">Name</th>
-					<th scope="col">Unit</th>
 					<th scope="col">Check-In</th>
 					<th scope="col">Check-Out</th>
 				</tr>
@@ -24,6 +25,7 @@ export const TenantList = () => {
 							<td>
 								<Link to={"/managetenant/" + tenant.id}>{tenant.unit.id}</Link>
 							</td>
+							{/* <td>{tenant.unit}</td> */}
 							<td>{tenant.name}</td>
 							<td>{tenant.check_in}</td>
 							<td>{tenant.check_out}</td>

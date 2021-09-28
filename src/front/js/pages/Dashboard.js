@@ -5,6 +5,7 @@ import { BuildingList } from "../component/buildinglist";
 import { UnitList } from "../component/unitlist";
 import { OwnerTenantList } from "../component/OwnerTenantList";
 import PropTypes from "prop-types";
+import { TenantList } from "../component/tenantlist";
 
 export function Dashboard() {
 	const auth = useAuth();
