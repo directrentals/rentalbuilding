@@ -25,7 +25,7 @@ export function CheckOutModal(props) {
 					</div>
 					<div className="modal-footer">
 						<button type="button" className="btn btn-primary">
-							Check-In
+							Check-Out
 						</button>
 						<button
 							type="button"

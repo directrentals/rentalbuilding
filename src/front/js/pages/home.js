@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import { FrontPageCardsRow } from "../component/FrontPageCardsRow";
-import { ContactUs } from "../component/ContactUs";
+import { ContactUs } from "../pages/Contact";
+import { Footer } from "../component/footer";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -12,50 +13,30 @@ export const Home = () => {
 			<div>
 				<img className="frontlogo" src="https://i.ibb.co/28qQfDD/lodgerlogo2.png" />
 			</div>
-			<div className="frontcontent">
-				<div className="frontbox">
-					<h1>What we do</h1>
-					<p>
-						Lodger provides the easiest solution to property owners and management staff to register
-						short-term tenants for access in Condominiums, HOAs, and other multi-family developments.
-					</p>
-				</div>
+			<div className="fullcontent">
+				<div className="frontcontent">
+					<div className="frontbox">
+						<h1>What we do</h1>
+						<p>
+							Lodger provides the easiest solution to property owners and management staff to register
+							short-term tenants for access in Condominiums, HOAs, and other multi-family developments.
+						</p>
+					</div>
 
-				<div className="frontbox">
-					<h1>Pricing</h1>
-					<p>
-						Contact us for a quote! If you are not satisfied after the first 30 days, we&apos;ll give you
-						back 100% of your initial monthly fee.{" "}
-					</p>
-				</div>
-			</div>
-			<div>
-				<FrontPageCardsRow />
-			</div>
-			<div>
-				<ContactUs />
-			</div>
-			{/* <div className="contactdiv">
-				<div className="contactbox">
-					<h1>Contact us!</h1>
-
-					<div>
-						<br />
-						<input type="text" placeholder="Enter name" size="56" className="inputs" />
-						<br />
-						<br />
-						<input type="text" placeholder="Enter E-Mail" size="56" className="inputs" />
-						<br />
-						<br />
-						<input type="text" placeholder="How can we help you" className="comment-box" />
-						<br />
-						<br />
-						<input type="submit" value="Submit" className="submit" /> <br /> <br />
-						<p>Or e-mail us directly at info@lodger.com</p>
+					<div className="frontbox">
+						<h1>Pricing</h1>
+						<p>
+							Contact us for a quote! If you are not satisfied after the first 30 days, we&apos;ll give
+							you back 100% of your initial monthly fee.{" "}
+						</p>
 					</div>
 				</div>
+				{/* <div>
+				<FrontPageCardsRow />
 			</div> */}
-			{/* <div className="morespace" /> */}
+				<ContactUs />
+			</div>
+			<Footer />
 		</div>
 	);
 };

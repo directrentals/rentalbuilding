@@ -7,6 +7,7 @@ import { CheckModal } from "./checkmodal";
 export const BuildingTenants = ({ id }) => {
 	const tenants = useQueryData("/api/buildingtenants/" + id);
 	const [checkInId, setCheckInId] = React.useState(undefined);
+	const [checkOutId, setCheckOutId] = React.useState(undefined);
 	if (tenants.loading || !tenants.data) {
 		return <div>loading</div>;
 	}
@@ -45,7 +46,10 @@ export const BuildingTenants = ({ id }) => {
 											Check-In
 										</button>
 									) : (
-										<button type="button" className="btn btn-danger btn-sm">
+										<button
+											type="button"
+											className="btn btn-danger btn-sm"
+											onClick={() => setCheckOutId(tenant.id)}>
 											Check-Out
 										</button>
 									)}

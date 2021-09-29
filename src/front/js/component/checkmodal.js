@@ -10,7 +10,7 @@ export function CheckModal(props) {
 			<div className="modal-dialog" role="document">
 				<div className="modal-content">
 					<div className="modal-header">
-						<h5 className="modal-title">Modal title</h5>
+						<h5 className="modal-title">Check-In</h5>
 						<button
 							type="button"
 							className="close"
@@ -21,7 +21,14 @@ export function CheckModal(props) {
 						</button>
 					</div>
 					<div className="modal-body">
-						<p>Modal body text goes here.</p>
+						<input
+							type="text"
+							id="fob"
+							placeholder="Fob Number"
+							maxLength="20"
+							// value={fob}
+							// onChange={ev => setName(ev.target.value)}
+						/>
 					</div>
 					<div className="modal-footer">
 						<button type="button" className="btn btn-primary">

@@ -19,15 +19,21 @@ export const ContactUs = () => {
 	};
 
 	return (
-		<form ref={form} onSubmit={sendEmail}>
-			<h2 className="info">Contact Us</h2>
-			<label>Name</label>
-			<input type="text" name="user_name" />
-			<label>Email</label>
-			<input type="email" name="user_email" />
-			<label>Message</label>
-			<textarea name="message" />
-			<input type="submit" value="Send" />
-		</form>
+		<div className="margin-contact">
+			<form ref={form} onSubmit={sendEmail}>
+				<div className="contact-box">
+					<h2 className="info">Contact Us</h2>
+					<label>Name</label>
+					<input className="size-input" type="text" name="user_name" />
+					<label>Email</label>
+					<input className="size-input" type="email" name="user_email" />
+					<label>Message</label>
+					<textarea className="size-input" name="message" />
+					<input className="size-sendbtn" type="submit" value="Send" />
+					<br />
+					<p>You can also e-mail us directly at lodger-app@gmail.com! </p>
+				</div>
+			</form>
+		</div>
 	);
 };
