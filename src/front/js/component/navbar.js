@@ -38,11 +38,11 @@ export const Navbar = () => {
 								Log in
 							</a>
 						</li>
-						<li className="nav-item">
+						{/* <li className="nav-item">
 							<a className="nav-link" href="/contact">
 								Contact
 							</a>
-						</li>
+						</li> */}
 					</ul>
 				</div>
 			)}
