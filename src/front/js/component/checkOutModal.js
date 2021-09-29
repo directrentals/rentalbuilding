@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export function CheckModal(props) {
+export function CheckOutModal(props) {
 	return (
 		<div
 			className={props.id !== undefined ? "modal show" : "modal"}
@@ -40,4 +40,4 @@ export function CheckModal(props) {
 		</div>
 	);
 }
-CheckModal.propTypes = { id: PropTypes.string, onClose: PropTypes.func };
+CheckOutModal.propTypes = { id: PropTypes.string, onClose: PropTypes.func };
