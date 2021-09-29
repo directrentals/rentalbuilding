@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/frontpagerow.scss";
 
-export const FrontPage = () => {
+export const FrontPageCardsRow = () => {
 	return (
 		<div className="container-row">
 			<div className="section-wrapper">
@@ -12,25 +12,25 @@ export const FrontPage = () => {
 						<i className="far fa-building fa-5x" />
 					</div>
 				</div>
-				<div className="section2">
-					<div className="section">
-						<h2>Units</h2>
-						<p>Register your units.......</p>
-						<div>
-							<i className="fas fa-home fa-5x" />
-						</div>
-					</div>
-					<div className="section">
-						<h2>Owners</h2>
-						<p>Owners can register his units and tenants......</p>
-						<div>
-							<img
-								className="traveler-img-front"
-								src={require(`/workspace/rentalbuilding/src/front/img/traveler.png`)}
-							/>
-						</div>
+
+				<div className="section">
+					<h2>Units</h2>
+					<p>Register your units.......</p>
+					<div>
+						<i className="fas fa-home fa-5x" />
 					</div>
 				</div>
+				<div className="section">
+					<h2>Owners</h2>
+					<p>Owners can register his units and tenants......</p>
+					<div>
+						<img
+							className="traveler-img-front"
+							src={require(`/workspace/rentalbuilding/src/front/img/traveler.png`)}
+						/>
+					</div>
+				</div>
+
 				<div className="section">
 					<h2>Tenants</h2>
 					<p>Staff can see the tenants list.......</p>

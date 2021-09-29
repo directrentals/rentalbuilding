@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
-import { FrontPage } from "../component/FrontPage";
+import { FrontPageCardsRow } from "../component/FrontPageCardsRow";
+import { ContactUs } from "../component/ContactUs";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -29,7 +30,10 @@ export const Home = () => {
 				</div>
 			</div>
 			<div>
-				<FrontPage />
+				<FrontPageCardsRow />
+			</div>
+			<div>
+				<ContactUs />
 			</div>
 			{/* <div className="contactdiv">
 				<div className="contactbox">
