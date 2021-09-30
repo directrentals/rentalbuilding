@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import "../../styles/register.scss";
 import { useQueryData, useUpdateData } from "../store/data";
+import emailjs from "emailjs-com";
 
 export function RegisterTenantPage() {
 	const [name, setName] = React.useState("");
@@ -19,7 +20,23 @@ export function RegisterTenantPage() {
 	React.useEffect(
 		() => {
 			if (tenant.updated) {
-				history.push("/dashboard");
+				const templateParams = {
+					name: name,
+					email: email,
+					subject: "Lodger access to building",
+					message:
+						"Hello! We are excited to have you as a tenant! Upon arrival, please pass by the Fron Desk to complete the registration process. Enjoy your stay!"
+				};
+
+				emailjs.send("service_9gyr8mr", "template_h0j8f8p", templateParams, "user_xEbved8R2ctCBnhDEdffV").then(
+					function(response) {
+						console.log("SUCCESS!", response.status, response.text);
+						history.push("/dashboard");
+					},
+					function(err) {
+						console.log("FAILED...", err);
+					}
+				);
 			}
 		},
 		[tenant.updated]

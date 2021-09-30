@@ -61,8 +61,40 @@ export const BuildingTenants = ({ id }) => {
 					})}
 				</tbody>
 			</table>
-			<CheckModal id={checkInId} onClose={() => setCheckInId(undefined)} />
-			<CheckOutModal id={checkOutId} onClose={() => setCheckOutId(undefined)} />
+			<CheckModal
+				id={checkInId}
+				onClose={op => {
+					if (op) {
+						tenants.mutate(
+							tenants.data.map(item => {
+								if (item.id === checkInId) {
+									return { ...item, ...op };
+								} else {
+									return item;
+								}
+							})
+						);
+					}
+					setCheckInId(undefined);
+				}}
+			/>
+			<CheckOutModal
+				id={checkOutId}
+				onClose={op => {
+					if (op) {
+						tenants.mutate(
+							tenants.data.map(item => {
+								if (item.id === checkOutId) {
+									return { ...item, ...op };
+								} else {
+									return item;
+								}
+							})
+						);
+					}
+					setCheckOutId(undefined);
+				}}
+			/>
 		</div>
 	);
 };

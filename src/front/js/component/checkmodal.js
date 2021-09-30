@@ -9,7 +9,7 @@ export function CheckModal(props) {
 		() => {
 			if (checkin.updated) {
 				checkin.reset();
-				props.onClose();
+				props.onClose({ fob: fob, status: "Checked" });
 			}
 		},
 		[checkin.updated]

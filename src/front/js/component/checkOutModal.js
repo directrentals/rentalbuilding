@@ -8,7 +8,7 @@ export function CheckOutModal(props) {
 		() => {
 			if (checkout.updated) {
 				checkout.reset();
-				props.onClose();
+				props.onClose({ status: "Checked-Out" });
 			}
 		},
 		[checkout.updated]

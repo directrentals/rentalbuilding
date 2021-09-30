@@ -38,7 +38,11 @@ export const useQueryData = endpoint => {
 		[loading, data]
 	);
 
-	return { loading, data };
+	const mutate = newdata => {
+		setData(newdata);
+	};
+
+	return { loading, data, mutate };
 };
 
 export const useUpdateData = (endpoint, method = "POST") => {

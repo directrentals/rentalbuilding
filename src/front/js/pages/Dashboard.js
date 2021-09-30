@@ -28,9 +28,9 @@ export function Dashboard() {
 				<div>
 					<h1>Units</h1>
 					<UnitList />
-					<Link to="/registerunit/" className="btn btn-primary">
+					{/* <Link to="/registerunit/" className="btn btn-primary">
 						REGISTER UNIT
-					</Link>{" "}
+					</Link>{" "} */}
 					<br /> <br />
 					<h1>Tenants</h1>
 					<OwnerTenantList />

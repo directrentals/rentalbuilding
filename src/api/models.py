@@ -78,13 +78,13 @@ class Unit(db.Model):
 
 class Tenant(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
+    name = db.Column(db.String(120), unique=False, nullable=False)
+    email = db.Column(db.String(120), unique=False, nullable=False)
     unit_id = db.Column(db.Integer, db.ForeignKey("unit.id"),nullable=False)
     unit = db.relationship("Unit")
     check_in = db.Column(db.DateTime(timezone = True))
     check_out = db.Column(db.DateTime(timezone = True))
-    fob = db.Column(db.String(120), unique=True)
+    fob = db.Column(db.String(120), unique=False)
     status = db.Column(db.String(20), nullable =False, default="created")
     pax = db.Column(db.Text, nullable =False)
     pax_count = db.Column(db.Integer)
