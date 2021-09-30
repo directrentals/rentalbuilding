@@ -5,6 +5,7 @@ import { useUpdateData } from "../store/data";
 export function CheckModal(props) {
 	const checkin = useUpdateData("/api/tenant/" + props.id, "PATCH");
 	const [fob, setFob] = React.useState("");
+	console.log(checkin);
 	React.useEffect(
 		() => {
 			if (checkin.updated) {

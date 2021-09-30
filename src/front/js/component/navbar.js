@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../store/auth";
 
 export const Navbar = () => {
 	const auth = useAuth();
+	const [showmenu, setShowmenu] = useState(" ");
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light bg-light nav-fixed">
 			<button
+				onClick={() => (showmenu == " " ? setShowmenu("show") : setShowmenu(" "))}
 				className="navbar-toggler"
 				type="button"
 				data-toggle="collapse"
@@ -21,7 +23,7 @@ export const Navbar = () => {
 			</a>
 
 			{!auth.authToken && (
-				<div className="collapse navbar-collapse" id="navbarTogglerDemo03">
+				<div className={"collapse navbar-collapse " + showmenu} id="navbarTogglerDemo03">
 					<ul className="navbar-nav mr-auto mt-2 mt-lg-0 navright">
 						<li className="nav-item">
 							<a className="nav-link" href="/">
