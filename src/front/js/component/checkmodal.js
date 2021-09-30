@@ -1,7 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useUpdateData } from "../store/data";
 
 export function CheckModal(props) {
+	const checkin = useUpdateData("/api/tenant/" + props.id, "PATCH");
+	const [fob, setFob] = React.useState("");
+	React.useEffect(
+		() => {
+			if (checkin.updated) {
+				checkin.reset();
+				props.onClose();
+			}
+		},
+		[checkin.updated]
+	);
 	return (
 		<div
 			className={props.id !== undefined ? "modal show" : "modal"}
@@ -26,12 +38,17 @@ export function CheckModal(props) {
 							id="fob"
 							placeholder="Fob Number"
 							maxLength="20"
-							// value={fob}
-							// onChange={ev => setName(ev.target.value)}
+							value={fob}
+							onChange={ev => setFob(ev.target.value)}
 						/>
 					</div>
 					<div className="modal-footer">
-						<button type="button" className="btn btn-primary">
+						<button
+							type="button"
+							className="btn btn-primary"
+							onClick={() => {
+								checkin.updateData({ fob: fob, status: "Checked" });
+							}}>
 							Check-In
 						</button>
 						<button

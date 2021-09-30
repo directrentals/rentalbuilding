@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useQueryData } from "../store/data";
 import PropTypes from "prop-types";
 import { CheckModal } from "./checkmodal";
+import { CheckOutModal } from "./checkOutModal";
 
 export const BuildingTenants = ({ id }) => {
 	const tenants = useQueryData("/api/buildingtenants/" + id);
@@ -60,6 +61,7 @@ export const BuildingTenants = ({ id }) => {
 				</tbody>
 			</table>
 			<CheckModal id={checkInId} onClose={() => setCheckInId(undefined)} />
+			<CheckOutModal id={checkOutId} onClose={() => setCheckOutId(undefined)} />
 		</div>
 	);
 };

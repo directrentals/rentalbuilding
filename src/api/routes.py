@@ -220,13 +220,13 @@ def checkin_tenant(id):
     if tenant.unit.building.manager_id != current_user_id:
         return jsonify({"message": "Unauthorized user"}), 403
 
-    tenant.fob = content["fob"]
-    tenant.status = "checked in"
-    tenant.save()
+    if "fob" in content:
+        tenant.fob = content["fob"] 
+    tenant.status = content["status"]
     db.session.commit()
 
     response_body = {
-        "message": "Tenant Checked in"
+        "message": "Tenant Checked"
     }
     return jsonify(response_body), 200
 
