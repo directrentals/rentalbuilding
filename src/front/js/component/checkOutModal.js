@@ -1,7 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useUpdateData } from "../store/data";
 
 export function CheckOutModal(props) {
+	const checkout = useUpdateData("/api/tenant/" + props.id, "PATCH");
+	React.useEffect(
+		() => {
+			if (checkout.updated) {
+				checkout.reset();
+				props.onClose();
+			}
+		},
+		[checkout.updated]
+	);
+
 	return (
 		<div
 			className={props.id !== undefined ? "modal show" : "modal"}
@@ -24,7 +36,12 @@ export function CheckOutModal(props) {
 						<p>Modal body text goes here.</p>
 					</div>
 					<div className="modal-footer">
-						<button type="button" className="btn btn-primary">
+						<button
+							type="button"
+							className="btn btn-primary"
+							onClick={() => {
+								checkout.updateData({ status: "Checked-Out" });
+							}}>
 							Check-Out
 						</button>
 						<button

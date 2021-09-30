@@ -39,14 +39,15 @@ export const BuildingTenants = ({ id }) => {
 								<td>{tenant.fob}</td>
 								<td>{tenant.status}</td>
 								<td>
-									{tenant.status === "created" ? (
+									{tenant.status === "created" && (
 										<button
 											type="button"
 											className="btn btn-success btn-sm"
 											onClick={() => setCheckInId(tenant.id)}>
 											Check-In
 										</button>
-									) : (
+									)}
+									{tenant.status === "Checked" && (
 										<button
 											type="button"
 											className="btn btn-danger btn-sm"

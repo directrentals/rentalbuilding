@@ -45,6 +45,10 @@ export const useUpdateData = (endpoint, method = "POST") => {
 	const [updating, setUpdating] = React.useState(false);
 	const [updated, setUpdated] = React.useState(false);
 	const auth = useAuth();
+	const reset = () => {
+		setUpdated(false);
+		setUpdating(false);
+	};
 
 	const updateData = data => {
 		setUpdating(true);
@@ -66,5 +70,5 @@ export const useUpdateData = (endpoint, method = "POST") => {
 		});
 	};
 
-	return { updated, updating, updateData };
+	return { updated, updating, updateData, reset };
 };
