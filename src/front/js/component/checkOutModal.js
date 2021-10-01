@@ -22,7 +22,7 @@ export function CheckOutModal(props) {
 			<div className="modal-dialog" role="document">
 				<div className="modal-content">
 					<div className="modal-header">
-						<h5 className="modal-title">Modal title</h5>
+						<h5 className="modal-title">Check-out tenant</h5>
 						<button
 							type="button"
 							className="close"
@@ -33,7 +33,7 @@ export function CheckOutModal(props) {
 						</button>
 					</div>
 					<div className="modal-body">
-						<p>Modal body text goes here.</p>
+						<p>Don&apos;t forget to thank them for staying with us!</p>
 					</div>
 					<div className="modal-footer">
 						<button

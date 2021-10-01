@@ -31,7 +31,7 @@ export const ContactUs = () => {
 					<textarea className="size-input" name="message" />
 					<input className="size-sendbtn" type="submit" value="Send" />
 					<br />
-					<p>You can also e-mail us directly at lodger-app@gmail.com! </p>
+					<p>You can also e-mail us directly at lodger-app@gmail.com </p>
 				</div>
 			</form>
 		</div>
