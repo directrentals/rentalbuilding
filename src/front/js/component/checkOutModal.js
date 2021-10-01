@@ -33,7 +33,7 @@ export function CheckOutModal(props) {
 						</button>
 					</div>
 					<div className="modal-body">
-						<p>Don&apos;t forget to thank them for staying with us!</p>
+						<p>Don&apos;t forget to thank all our tenants for staying with us!</p>
 					</div>
 					<div className="modal-footer">
 						<button
