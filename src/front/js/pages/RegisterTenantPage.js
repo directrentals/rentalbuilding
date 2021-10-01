@@ -24,8 +24,7 @@ export function RegisterTenantPage() {
 					name: name,
 					email: email,
 					subject: "Lodger access to building",
-					message:
-						"Hello! We are excited to have you as a tenant! Upon arrival, please pass by the Fron Desk to complete the registration process. Enjoy your stay!"
+					message: `We are excited to have you as a tenant! Your check-in date is: ${check_in} and your check-out date is ${check_out} Upon arrival, please pass by the Fron Desk to complete the registration process. Enjoy your stay!`
 				};
 
 				emailjs.send("service_9gyr8mr", "template_h0j8f8p", templateParams, "user_xEbved8R2ctCBnhDEdffV").then(
